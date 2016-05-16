@@ -1,0 +1,25 @@
+{
+  "name": "pong",
+  "version": "1.0.0",
+  "description": "Pong version for EAFIT class",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "rabbit",
+    "broker",
+    "node",
+    "reciver"
+  ],
+  "author": "jhenaoz",
+  "license": "ISC",
+  "engines":{
+    "node": "5.8.0",
+    "npm" : "3.7.3"
+  },
+  "dependencies": {
+    "amqplib": "^0.4.1",
+    "express": "^4.13.4"
+  }
+}

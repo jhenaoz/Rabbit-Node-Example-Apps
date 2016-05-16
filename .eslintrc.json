@@ -1,0 +1,14 @@
+{
+    "parserOptions": {
+    },
+    "rules": {
+        "semi": ["error", "always"],
+        "quotes": ["warn", "single"],
+        "no-extra-semi": "warn",
+        "no-cond-assign": "error",
+        "no-extra-parens": "warn",
+        "no-irregular-whitespace": "warn",
+        "no-constant-condition": "warn",
+        "comma-dangle": "error"
+    }
+}

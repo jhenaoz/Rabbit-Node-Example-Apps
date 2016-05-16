@@ -1,0 +1,21 @@
+{
+  "name": "ping",
+  "version": "1.0.0",
+  "description": "Publisher App conected to Rabbit MQ broker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ping",
+    "eafit",
+    "practice",
+    "broker"
+  ],
+  "author": "jhenaoz",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.4.1",
+    "express": "^4.13.4"
+  }
+}
