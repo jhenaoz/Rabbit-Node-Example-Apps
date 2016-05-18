@@ -7,7 +7,6 @@ var messages = {
 };
 
 function listenQueue(){
-  var self = this;
   open.then(function(connection) {
     return connection.createChannel();
   }).then(function(channel) {
@@ -29,14 +28,16 @@ function listenQueue(){
 function responseMessageToPingApp(channel){
   setTimeout(function(){
     channel.assertQueue('PONG_QUEUE').then(function(ok) {
-      var message = channel.sendToQueue('PONG_QUEUE', new Buffer('PONG_MESSAGE'));
+      var textToSend = 'PONG_MESSAGE'+ Math.random();
+      console.log(textToSend);
+      var message = channel.sendToQueue('PONG_QUEUE', new Buffer(textToSend));
       if (message) {
-        messages.answered = messages.answered + 1;
+        messages.answered++;
       }
     });
   }, 2000);
 }
-
+// HTTP GET
 app.get('/messages',function(req, res){
   res.send(messages);
 });
