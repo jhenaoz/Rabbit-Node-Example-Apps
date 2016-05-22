@@ -12,13 +12,13 @@ app.get('/ping', function (req, res) {
       getMessage().then(function(messageFromPong){
         res.send(messageFromPong.content.toString());
       });
-
     }
   });
 });
 
 function getMessage(){
   return reciveMessageFromPong().then(function(message){
+    console.log('MESSAGE', message);
     if(!message){
       return getMessage();
     }else{
@@ -41,12 +41,8 @@ function reciveMessageFromPong(){
     return conn.createChannel();
   }).then(function(channel) {
     return channel.assertQueue('PONG_QUEUE').then(function(ok){
-      var message = false;
-      while(message === false){
-        message = channel.get('PONG_QUEUE');
-      }
       channel.ackAll();
-      return message;
+      return channel.get('PONG_QUEUE');
     });
   }).catch(console.warn);
 }
