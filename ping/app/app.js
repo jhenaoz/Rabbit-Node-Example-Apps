@@ -9,14 +9,10 @@ app.get('/ping', function (req, res) {
   var messageToPong = sendMessageToPong();
   messageToPong.then(function(responseToMessageSend){
     if(responseToMessageSend){
-
-      //reciveMessageFromPong().then(function(message){
-      //  messageFromPong = message; 
-      //});        
       getMessage().then(function(messageFromPong){
-        res.send(messageFromPong.content.toString());  
+        res.send(messageFromPong.content.toString());
       });
-      
+
     }
   });
 });
@@ -28,7 +24,7 @@ function getMessage(){
     }else{
       return message;
     }
-  })
+  });
 }
 function sendMessageToPong(){
   return open.then(function(conn) {
@@ -46,7 +42,7 @@ function reciveMessageFromPong(){
   }).then(function(channel) {
     return channel.assertQueue('PONG_QUEUE').then(function(ok){
       var message = false;
-      while(message == false){
+      while(message === false){
         message = channel.get('PONG_QUEUE');
       }
       channel.ackAll();
